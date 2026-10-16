@@ -166,9 +166,24 @@
 
         /* 响应式 */
         @media (max-width: 900px) {
-            .cards-row { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
-            .hero h1 { font-size: 32px; }
+            .cards-row {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 14px; }
             .nav-links { gap: 12px; font-size: 13px; }
+        }
+        @media (max-width: 520px) {
+            .cards-row {
+                grid-template-columns: 1fr;
+                max-width: 100%;
+            }
+            .card-link { padding: 28px 20px; }
+            .card-icon { width: 70px; height: 70px; font-size: 32px; }
+            .card-title { font-size: 17px; }
+            .card-desc { font-size: 13px; }
+            .card-btn { padding: 10px 24px; font-size: 14px; }
         }
     </style>
 </head>
