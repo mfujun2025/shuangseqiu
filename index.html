@@ -71,27 +71,34 @@
         }
         .card-link:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
 
-        /* 广告卡片样式 */
-        .card-link.ad-card {
+        /* 广告卡片（横向宽卡，位于快捷卡片下方） */
+        .ad-section { margin: 10px 0 30px; }
+        .ad-card {
+            display: flex;
+            align-items: center;
+            gap: 28px;
             background: linear-gradient(160deg, #fff5f5 0%, #ffe8e8 100%);
+            border-radius: 20px;
+            padding: 32px 36px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
             border: 2px solid transparent;
         }
-        .card-link.ad-card::before { background: linear-gradient(90deg, #e74c3c, #f39c12); }
-        .card-link.ad-card:hover { border-color: #e74c3c; }
-        .card-link.ad-card .card-icon {
-            width: 90px; height: 90px;
+        .ad-card:hover { transform: translateY(-4px); box-shadow: 0 16px 50px rgba(0,0,0,0.16); border-color: #e74c3c; }
+        .ad-icon {
+            width: 80px; height: 80px;
             background: linear-gradient(135deg, #e74c3c, #c0392b);
-            border-radius: 22px;
+            border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 38px;
+            flex-shrink: 0;
         }
-        .card-link.ad-card .card-title { color: #c0392b; }
-        .card-link.ad-card .card-tag {
-            background: linear-gradient(135deg, #ff4757, #ff6b81);
-            animation: tagPulse 1.5s ease-in-out infinite;
-        }
-        @keyframes tagPulse {
-            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,71,87,0.4); }
-            50% { transform: scale(1.08); box-shadow: 0 0 12px 4px rgba(255,71,87,0.3); }
-        }
+        .ad-content { flex: 1; }
+        .ad-content h3 { font-size: 22px; color: #c0392b; margin: 8px 0 10px; }
+        .ad-content p { color: #666; line-height: 1.7; font-size: 14px; margin-bottom: 14px; }
+        .ad-content .card-btn { font-size: 15px; }
 
         /* 快捷卡片通用样式 */
         .card-link.quick-card {
@@ -166,6 +173,7 @@
             .cards-row { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
             .hero h1 { font-size: 32px; }
             .nav-links { gap: 12px; font-size: 13px; }
+            .ad-card { flex-direction: column; text-align: center; padding: 24px; }
         }
     </style>
 </head>
@@ -192,22 +200,10 @@
                 <p>实时更新开奖数据 · 准确历史记录 · 助您掌握中奖信息</p>
             </section>
 
-            <!-- 三列卡片：广告 + 两个快捷入口 -->
+            <!-- 快捷入口 -->
             <section class="cards-row">
 
-                <!-- 卡片1：流量卡广告 -->
-                <a href="https://ahfylq.172tongxun.cn/home/9d74eed455fc7747" target="_blank" rel="noopener" class="card-link ad-card">
-                    <div class="card-icon">📱</div>
-                    <span class="card-tag">🔥 免费领取</span>
-                    <h2 class="card-title">超值流量卡 · 每月低至9元</h2>
-                    <p class="card-desc">
-                        联通全国通用大流量卡，<strong>19元享185G</strong>（155G通用+30G定向）+ 100分钟通话。<br>
-                        不限速、无合约、免月租首年，手机卡直邮到家，即用即激活。
-                    </p>
-                    <span class="card-btn">立即领取 →</span>
-                </a>
-
-                <!-- 卡片2：最新开奖结果 -->
+                <!-- 卡片1：最新开奖结果 -->
                 <a href="https://www.zhcw.com/kjxx/ssq/kjxq/?kj" target="_blank" rel="noopener" class="card-link quick-card">
                     <div class="card-icon">🎯</div>
                     <h2 class="card-title">最新开奖结果</h2>
@@ -217,7 +213,7 @@
                     <span class="card-btn">立即查询</span>
                 </a>
 
-                <!-- 卡片3：往期开奖结果 -->
+                <!-- 卡片2：往期开奖结果 -->
                 <a href="https://www.zhcw.com/kjxx/ssq/" target="_blank" rel="noopener" class="card-link quick-card">
                     <div class="card-icon">📊</div>
                     <h2 class="card-title">往期开奖结果</h2>
@@ -227,6 +223,19 @@
                     <span class="card-btn">查看历史</span>
                 </a>
 
+            </section>
+
+            <!-- 流量卡广告（卡片下方） -->
+            <section class="ad-section">
+                <a href="https://ahfylq.172tongxun.cn/home/9d74eed455fc7747" target="_blank" rel="noopener" class="ad-card">
+                    <div class="ad-icon">📱</div>
+                    <div class="ad-content">
+                        <span class="card-tag">🔥 免费领取</span>
+                        <h3>超值流量卡 · 每月低至9元</h3>
+                        <p>联通全国通用大流量卡，<strong>19元享185G</strong>（155G通用+30G定向）+ 100分钟通话。不限速、无合约、免月租首年，手机卡直邮到家，即用即激活。</p>
+                        <span class="card-btn">立即领取 →</span>
+                    </div>
+                </a>
             </section>
         </div>
     </main>
