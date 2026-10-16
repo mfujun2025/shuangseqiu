@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>双色球开奖结果_官网查询平台_历史开奖记录</title>
+    <title>双色球开奖结果_官方查询平台_历史开奖记录</title>
     <meta name="description" content="双色球开奖结果查询平台，提供最新开奖结果、往期开奖记录、开奖资讯等信息服务，数据准确及时。">
     <meta name="keywords" content="双色球,开奖结果,历史开奖,福利彩票,中奖查询">
     <meta property="og:title" content="双色球开奖结果查询平台">
@@ -19,7 +19,7 @@
             color: #333;
         }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-        
+
         /* 导航栏 */
         header {
             background: rgba(255, 255, 255, 0.95);
@@ -34,62 +34,118 @@
         .nav-links { display: flex; gap: 30px; list-style: none; }
         .nav-links a { text-decoration: none; color: #555; font-weight: 500; transition: color 0.3s; }
         .nav-links a:hover { color: #e74c3c; }
-        
+
         /* 主内容 */
         main { padding: 40px 0; }
-        .hero { text-align: center; padding: 60px 0; color: white; }
-        .hero h1 { font-size: 48px; margin-bottom: 20px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+        .hero { text-align: center; padding: 60px 0 40px; color: white; }
+        .hero h1 { font-size: 48px; margin-bottom: 16px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
         .hero p { font-size: 18px; opacity: 0.95; }
-        
-        /* 广告卡片 */
-        .ad-section { margin: 40px 0; }
-        .ad-card {
-            background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
-            border-radius: 20px;
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            gap: 30px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            text-decoration: none;
-            color: inherit;
-            border: 2px solid transparent;
+
+        /* 三列卡片统一布局 */
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 20px 0 40px;
         }
-        .ad-card:hover { transform: translateY(-5px); border-color: #e74c3c; }
-        .ad-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #e74c3c, #c0392b); border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 40px; flex-shrink: 0; }
-        .ad-content h3 { font-size: 24px; color: #c0392b; margin-bottom: 10px; }
-        .ad-content p { color: #666; line-height: 1.6; }
-        .ad-badge { display: inline-block; background: #e74c3c; color: white; padding: 5px 15px; border-radius: 20px; font-size: 14px; margin-top: 10px; }
-        
-        /* 快捷入口 */
-        .quick-links { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin: 40px 0; }
-        .quick-card {
-            background: white;
-            border-radius: 20px;
-            padding: 35px;
-            text-align: center;
+
+        .card-link {
             text-decoration: none;
             color: inherit;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 40px 24px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
             position: relative;
             overflow: hidden;
         }
-        .quick-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #667eea, #764ba2); }
-        .quick-card:hover { transform: translateY(-8px); }
-        .card-icon { width: 100px; height: 100px; margin: 0 auto 20px; background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 50px; }
-        .quick-card h3 { font-size: 22px; margin-bottom: 15px; }
-        .quick-card p { color: #666; line-height: 1.6; margin-bottom: 20px; }
-        .card-btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 12px 30px; border-radius: 25px; font-weight: 600; }
-        
+        .card-link::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+        }
+        .card-link:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.18); }
+
+        /* 广告卡片样式 */
+        .card-link.ad-card {
+            background: linear-gradient(160deg, #fff5f5 0%, #ffe8e8 100%);
+            border: 2px solid transparent;
+        }
+        .card-link.ad-card::before { background: linear-gradient(90deg, #e74c3c, #f39c12); }
+        .card-link.ad-card:hover { border-color: #e74c3c; }
+        .card-link.ad-card .card-icon {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 22px;
+        }
+        .card-link.ad-card .card-title { color: #c0392b; }
+        .card-link.ad-card .card-tag { background: #e74c3c; }
+
+        /* 快捷卡片通用样式 */
+        .card-link.quick-card {
+            background: white;
+        }
+        .card-link.quick-card::before { background: linear-gradient(90deg, #667eea, #764ba2); }
+        .card-link.quick-card .card-icon {
+            width: 90px; height: 90px;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e0e7ff 100%);
+            border-radius: 50%;
+        }
+        .card-link.quick-card .card-title { color: #333; }
+        .card-link.quick-card .card-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        /* 卡片内部元素 */
+        .card-icon {
+            font-size: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            flex-shrink: 0;
+        }
+        .card-title { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
+        .card-desc { color: #666; line-height: 1.7; font-size: 14px; margin-bottom: 20px; flex-grow: 1; }
+        .card-tag {
+            display: inline-block;
+            color: white;
+            padding: 5px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        .card-btn {
+            display: inline-block;
+            color: white;
+            padding: 11px 28px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: opacity 0.3s;
+        }
+        .card-btn:hover { opacity: 0.85; }
+
         /* 底部 */
-        footer { background: rgba(255,255,255,0.95); padding: 30px 0; text-align: center; color: #666; margin-top: 60px; }
-        
-        @media (max-width: 768px) {
+        footer {
+            background: rgba(255,255,255,0.95);
+            padding: 30px 0;
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 900px) {
+            .cards-row { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
             .hero h1 { font-size: 32px; }
-            .nav-links { gap: 15px; font-size: 14px; }
-            .ad-card { flex-direction: column; text-align: center; }
+            .nav-links { gap: 12px; font-size: 13px; }
         }
     </style>
 </head>
@@ -113,41 +169,52 @@
         <div class="container">
             <section class="hero">
                 <h1>双色球开奖结果查询平台</h1>
-                <p>实时更新开奖数据，准确历史记录，助您掌握中奖信息</p>
+                <p>实时更新开奖数据 · 准确历史记录 · 助您掌握中奖信息</p>
             </section>
 
-            <section class="ad-section">
-                <a href="https://ahfylq.172tongxun.cn/home/9d74eed455fc7747" target="_blank" rel="noopener" class="ad-card">
-                    <div class="ad-icon">📱</div>
-                    <div class="ad-content">
-                        <h3>超值流量卡优惠</h3>
-                        <p>大流量、低月租、全国通用，限时特惠活动火热进行中！立即了解详情，享受超值通讯服务。</p>
-                        <span class="ad-badge">立即查看</span>
-                    </div>
+            <!-- 三列卡片：广告 + 两个快捷入口 -->
+            <section class="cards-row">
+
+                <!-- 卡片1：流量卡广告 -->
+                <a href="https://ahfylq.172tongxun.cn/home/9d74eed455fc7747" target="_blank" rel="noopener" class="card-link ad-card">
+                    <div class="card-icon">📱</div>
+                    <span class="card-tag">限时特惠</span>
+                    <h2 class="card-title">超值流量卡 · 每月低至9元</h2>
+                    <p class="card-desc">
+                        联通全国通用大流量卡，<strong>19元享185G</strong>（155G通用+30G定向）+ 100分钟通话。<br>
+                        不限速、无合约、免月租首年，手机卡直邮到家，即用即激活。
+                    </p>
+                    <span class="card-btn">立即领取 →</span>
                 </a>
-            </section>
 
-            <section class="quick-links">
-                <a href="https://www.zhcw.com/kjxx/ssq/kjxq/?kj" target="_blank" rel="noopener" class="quick-card">
+                <!-- 卡片2：最新开奖结果 -->
+                <a href="https://www.zhcw.com/kjxx/ssq/kjxq/?kj" target="_blank" rel="noopener" class="card-link quick-card">
                     <div class="card-icon">🎯</div>
-                    <h3>最新开奖结果</h3>
-                    <p>查询双色球最新一期开奖号码、中奖情况，实时更新，准确无误</p>
+                    <h2 class="card-title">最新开奖结果</h2>
+                    <p class="card-desc">
+                        双色球最新一期开奖号码、中奖金额、奖池余额，实时更新，准确无误。
+                    </p>
                     <span class="card-btn">立即查询</span>
                 </a>
-                <a href="https://www.zhcw.com/kjxx/ssq/" target="_blank" rel="noopener" class="quick-card">
+
+                <!-- 卡片3：往期开奖结果 -->
+                <a href="https://www.zhcw.com/kjxx/ssq/" target="_blank" rel="noopener" class="card-link quick-card">
                     <div class="card-icon">📊</div>
-                    <h3>往期开奖结果</h3>
-                    <p>查看历史开奖记录，分析开奖趋势，辅助选号决策</p>
+                    <h2 class="card-title">往期开奖结果</h2>
+                    <p class="card-desc">
+                        查看历史开奖记录，分析走势规律，辅助选号决策，数据全面可追溯。
+                    </p>
                     <span class="card-btn">查看历史</span>
                 </a>
+
             </section>
         </div>
     </main>
 
     <footer>
         <div class="container">
-            <p>© 2026 双色球开奖结果查询平台 - 官方数据合作伙伴</p>
-            <p style="margin-top: 10px; font-size: 14px;">数据来源于中国体彩网，仅供查询参考</p>
+            <p>© 2026 双色球开奖结果查询平台</p>
+            <p style="margin-top: 8px; font-size: 14px; color: #999;">数据来源于中国体彩网，仅供查询参考</p>
         </div>
     </footer>
 </body>
