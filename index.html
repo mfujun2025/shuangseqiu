@@ -84,7 +84,14 @@
             border-radius: 22px;
         }
         .card-link.ad-card .card-title { color: #c0392b; }
-        .card-link.ad-card .card-tag { background: #e74c3c; }
+        .card-link.ad-card .card-tag {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            animation: tagPulse 1.5s ease-in-out infinite;
+        }
+        @keyframes tagPulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255,71,87,0.4); }
+            50% { transform: scale(1.08); box-shadow: 0 0 12px 4px rgba(255,71,87,0.3); }
+        }
 
         /* 快捷卡片通用样式 */
         .card-link.quick-card {
@@ -191,7 +198,7 @@
                 <!-- 卡片1：流量卡广告 -->
                 <a href="https://ahfylq.172tongxun.cn/home/9d74eed455fc7747" target="_blank" rel="noopener" class="card-link ad-card">
                     <div class="card-icon">📱</div>
-                    <span class="card-tag">限时特惠</span>
+                    <span class="card-tag">🔥 免费领取</span>
                     <h2 class="card-title">超值流量卡 · 每月低至9元</h2>
                     <p class="card-desc">
                         联通全国通用大流量卡，<strong>19元享185G</strong>（155G通用+30G定向）+ 100分钟通话。<br>
