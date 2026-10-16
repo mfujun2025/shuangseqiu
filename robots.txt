@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://双色球开奖结果.cn/sitemap.xml
